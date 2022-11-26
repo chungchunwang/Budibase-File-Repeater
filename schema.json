@@ -1,0 +1,32 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "Budibase-File-Repeater",
+    "friendlyName": "Budibase File Repeater",
+    "description": "A repeater for file entries generated with Budibase File Upload.",
+    "icon": "JourneyData",
+    "hasChildren": true,
+    "info": "Created by chungchunwang on GitHub at: https://github.com/chungchunwang/Budibase-File-Repeater. You can find detailed instructions there. Please report any issues or feature requests to the GitHub repo (or perhaps star!).",
+    "settings": [
+          {
+            "type": "text",
+            "key": "data",
+            "label": "Data"
+          }
+    ],
+    "context": [
+      {
+        "type": "static",
+        "values": [
+          {
+            "label": "File URL",
+            "key": "fileURL",
+            "type": "string",
+            "defaultValue": ""
+          }
+        ]
+      }
+    ]
+  }
+}
