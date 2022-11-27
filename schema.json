@@ -36,6 +36,24 @@
             "key": "blobURL",
             "type": "string",
             "defaultValue": ""
+          },
+          {
+            "label": "Name",
+            "key": "name",
+            "type": "string",
+            "defaultValue": ""
+          },
+          {
+            "label": "Type",
+            "key": "type",
+            "type": "string",
+            "defaultValue": ""
+          },
+          {
+            "label": "Size",
+            "key": "size",
+            "type": "number",
+            "defaultValue": ""
           }
         ]
       }

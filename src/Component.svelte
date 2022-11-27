@@ -38,13 +38,19 @@
 
   let dataURL = [];
   let bolbURL = [];
+  let name = [];
+  let type = [];
+  let size = [];
     $: dataURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.link): [];
     $: bolbURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => dataURIToBlobURL(e.link)): [];
+    $: name = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.name): [];
+    $: type = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.type): [];
+    $: size = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.size): [];
 </script>
 
 <div use:styleable={$component.styles}>
   {#each dataURL as url, i}
-        <Provider data={{dataURL:url, blobURL: bolbURL[i]}}>
+        <Provider data={{dataURL:url, blobURL: bolbURL[i], name: name[i], type: type[i], size: size[i]}}>
         <slot />
       </Provider>
       {/each}
