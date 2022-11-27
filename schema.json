@@ -13,6 +13,12 @@
             "type": "text",
             "key": "data",
             "label": "Data"
+          },
+          {
+            "type": "boolean",
+            "key": "encodingProtection",
+            "label": "Encoding Protection - Resolves Budibase Bug #8826 For SQL Databases - Recommended",
+            "defaultValue": true
           }
     ],
     "context": [
@@ -20,8 +26,14 @@
         "type": "static",
         "values": [
           {
-            "label": "File URL",
-            "key": "fileURL",
+            "label": "Data URL",
+            "key": "dataURL",
+            "type": "string",
+            "defaultValue": ""
+          },
+          {
+            "label": "Blob URL",
+            "key": "blobURL",
             "type": "string",
             "defaultValue": ""
           }

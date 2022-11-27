@@ -7,7 +7,9 @@ This is a plugin for the low-code platform Budibase. Find out more about Budibas
 ## Settings
 Data: The string data to be parsed.
 ## Context Returned
-File URL: The url of a file. [The URLs are Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), so they can be quite long. However, they will work just like normal links and can function in image and links!)
+Data URL: The data url of a file. [Data URLs contain the all of the file's binary data within its URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), so they can be quite long. However, they will work just like normal links and can function in image and links!
+
+Blob URL: The blob url of a file. [Blob URLs store the data inside of the browser, so they have shorter links.](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL). However the links will not work if directly copied to another browser. It is recommended that you use this option.
 
 ## Other Tools
 Check out the main [Budibase File Upload Plugin](https://github.com/chungchunwang/Budibase-File-Upload)!
