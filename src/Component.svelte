@@ -41,11 +41,14 @@
   let name = [];
   let type = [];
   let size = [];
-    $: dataURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.link): [];
-    $: bolbURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => dataURIToBlobURL(e.link)): [];
-    $: name = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.name): [];
-    $: type = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.type): [];
-    $: size = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.size): [];
+  $: if (data && data.length > 2) {
+    dataURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.link): [];
+    bolbURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => dataURIToBlobURL(e.link)): [];
+    name = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.name): [];
+    type = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.type): [];
+    size = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.size): [];
+  }
+    
 </script>
 
 <div use:styleable={$component.styles}>
