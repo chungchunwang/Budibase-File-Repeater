@@ -4,12 +4,27 @@ This is a companion to the [Budibase File Upload Plugin](https://github.com/chun
 Please report any issues or feature requests (or perhaps star!).
 
 This is a plugin for the low-code platform Budibase. Find out more about Budibase [here](https://github.com/Budibase/budibase).
+
+## How to use:
+1. Add a new Budibase File Repeater into the app.
+![image](https://user-images.githubusercontent.com/62127500/206100358-78b05f0e-2ef5-4063-b2ef-442ffd9a8130.png)
+2. In the data field, input the string data in which your file is stored.
+![image](https://user-images.githubusercontent.com/62127500/206100510-3d806d1f-0c67-4dbf-a4c4-cc278ea6eec4.png)
+3. Now, any child elements to the repeater will be repeated for every file stored in the field, and child elements will have access to the data URL, blob URL, name, size, and type properties of the file.
+![image](https://user-images.githubusercontent.com/62127500/206101058-4d7fbde5-9dbf-4fb1-ac06-0bdc13723045.png)
+
 ## Settings
 Data: The string data to be parsed.
 ## Context Returned
 Data URL: The data url of a file. [Data URLs contain the all of the file's binary data within its URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), so they can be quite long. However, they will work just like normal links and can function in image and links!
 
 Blob URL: The blob url of a file. [Blob URLs store the data inside of the browser, so they have shorter links.](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL). However the links will not work if directly copied to another browser. It is recommended that you use this option.
+
+Name: The name of the file.
+
+Size: The size of the file.
+
+Type: The type of the file.
 
 ## Other Tools
 Check out the main [Budibase File Upload Plugin](https://github.com/chungchunwang/Budibase-File-Upload)!
