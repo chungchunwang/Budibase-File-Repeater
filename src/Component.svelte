@@ -37,13 +37,13 @@
   }
 
   let dataURL = [];
-  let bolbURL = [];
+  let blobURL = [];
   let name = [];
   let type = [];
   let size = [];
   $: if (data && data.length > 2) {
     dataURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.link): [];
-    bolbURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => dataURIToBlobURL(e.link)): [];
+    blobURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => dataURIToBlobURL(e.link)): [];
     name = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.name): [];
     type = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.type): [];
     size = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.size): [];
@@ -53,7 +53,7 @@
 
 <div use:styleable={$component.styles}>
   {#each dataURL as url, i}
-        <Provider data={{dataURL:url, blobURL: bolbURL[i], name: name[i], type: type[i], size: size[i]}}>
+        <Provider data={{dataURL:url, blobURL: blobURL[i], name: name[i], type: type[i], size: size[i], rowIndex: i}}>
         <slot />
       </Provider>
       {/each}
