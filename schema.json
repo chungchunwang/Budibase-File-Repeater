@@ -54,6 +54,12 @@
             "key": "size",
             "type": "number",
             "defaultValue": ""
+          },
+          {
+            "label": "Row Index",
+            "key": "rowIndex",
+            "type": "number",
+            "defaultValue": ""
           }
         ]
       }
