@@ -19,6 +19,12 @@
             "key": "encodingProtection",
             "label": "Encoding Protection - Resolves Budibase Bug #8826 For SQL Databases - Recommended",
             "defaultValue": true
+          },
+          {
+            "type": "boolean",
+            "key": "camera",
+            "label": "Resolves Camera Plugin",
+            "defaultValue": true
           }
     ],
     "context": [
@@ -28,6 +34,12 @@
           {
             "label": "Data URL",
             "key": "dataURL",
+            "type": "string",
+            "defaultValue": ""
+          },
+          {
+            "label": "Link URL",
+            "key": "linkURL",
             "type": "string",
             "defaultValue": ""
           },

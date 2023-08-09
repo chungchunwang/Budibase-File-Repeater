@@ -1,11 +1,12 @@
 <script>
-  import { getContext } from "svelte"
+  import { getContext } from "svelte";
 
   export let data;
   export let encodingProtection;
+  export let camera;
 
-  const { styleable, Provider  } = getContext("sdk")
-  const component = getContext("component")
+  const { styleable, Provider } = getContext("sdk");
+  const component = getContext("component");
 
   //https://stackoverflow.com/questions/12168909/blob-from-dataurl
   function dataURItoBlob(dataURI) {
@@ -36,25 +37,74 @@
     return URL.createObjectURL(dataURItoBlob(dataURI));
   }
 
+  let linkURL = [];
   let dataURL = [];
   let blobURL = [];
   let name = [];
   let type = [];
   let size = [];
+
   $: if (data && data.length > 2) {
-    dataURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.link): [];
-    blobURL = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => dataURIToBlobURL(e.link)): [];
-    name = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.name): [];
-    type = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.type): [];
-    size = data? JSON.parse((encodingProtection? data.slice(1,-1): data)).map((e) => e.size): [];
+    if (camera) {
+      linkURL = data
+        ? JSON.parse(camera ? data.slice(1, -1) : data).map((e) => e.url)
+        : [];
+    } else {
+      dataURL = data
+        ? JSON.parse(encodingProtection ? data.slice(1, -1) : data).map(
+            (e) => e.link
+          )
+        : [];
+      blobURL = data
+        ? JSON.parse(encodingProtection ? data.slice(1, -1) : data).map((e) =>
+            dataURIToBlobURL(e.link)
+          )
+        : [];
+      name = data
+        ? JSON.parse(encodingProtection ? data.slice(1, -1) : data).map(
+            (e) => e.name
+          )
+        : [];
+      type = data
+        ? JSON.parse(encodingProtection ? data.slice(1, -1) : data).map(
+            (e) => e.type
+          )
+        : [];
+      size = data
+        ? JSON.parse(encodingProtection ? data.slice(1, -1) : data).map(
+            (e) => e.size
+          )
+        : [];
+    }
   }
-    
 </script>
 
 <div use:styleable={$component.styles}>
-  {#each dataURL as url, i}
-        <Provider data={{dataURL:url, blobURL: blobURL[i], name: name[i], type: type[i], size: size[i], rowIndex: i}}>
+  {#if camera === false}
+    {#each dataURL as url, i}
+      <Provider
+        data={{
+          dataURL: url,
+          blobURL: blobURL[i],
+          name: name[i],
+          type: type[i],
+          size: size[i],
+          rowIndex: i,
+        }}
+      >
         <slot />
       </Provider>
-      {/each}
+    {/each}
+  {:else}
+    {#each linkURL as url, i}
+      <Provider
+        data={{
+          linkURL: url,
+          rowIndex: i,
+        }}
+      >
+        <slot />
+      </Provider>
+    {/each}
+  {/if}
 </div>
