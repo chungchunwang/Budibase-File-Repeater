@@ -12,10 +12,14 @@ This is a plugin for the low-code platform Budibase. Find out more about Budibas
 ![image](https://user-images.githubusercontent.com/62127500/206100510-3d806d1f-0c67-4dbf-a4c4-cc278ea6eec4.png)
 3. Now, any child elements to the repeater will be repeated for every file stored in the field, and child elements will have access to the data URL, blob URL, name, size, and type properties of the file.
 ![image](https://user-images.githubusercontent.com/62127500/206101058-4d7fbde5-9dbf-4fb1-ac06-0bdc13723045.png)
+4. _(optional)_ For, camera capture plugin to display multiple images, **enabled** the "Resolve Camera Plugin" checkmark and **disable** the "Encoding Protection - Resolves Budibase Bug #8826 For SQL Databases - Recommended" checkmark. Related plugin [budibase-component-camera](https://github.com/andz-bb/budibase-component-camera).
 
 ## Settings
 Data: The string data to be parsed.
+
 ## Context Returned
+Link URL: The link url of an image file. However, they will work just like normal links and can function in image and links!
+
 Data URL: The data url of a file. [Data URLs contain the all of the file's binary data within its URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), so they can be quite long. However, they will work just like normal links and can function in image and links!
 
 Blob URL: The blob url of a file. [Blob URLs store the data inside of the browser, so they have shorter links.](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL). However the links will not work if directly copied to another browser. It is recommended that you use this option.
